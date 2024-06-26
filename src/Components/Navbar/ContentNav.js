@@ -64,6 +64,22 @@ const ContentNav = (props) => {
             </Link>
           </ListItem>
         ))}
+        <Link to="/home/maps" style={{ textDecoration: "none" }}>
+          <Paper
+            sx={{
+              mb: 2,
+              p: 2,
+              textAlign: "center",
+              bgcolor: "#5f7d8a",
+              color: "white",
+              "&:hover": {
+                bgcolor: "secondary.dark",
+              },
+            }}
+          >
+            <Typography variant="body1">Road Side Assistance</Typography>
+          </Paper>
+        </Link>
       </List>
     </Box>
   );
