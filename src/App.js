@@ -41,9 +41,24 @@ export default function App() {
       >
         <Router>
           <Routes>
-            <Route path="/" element={<SignUp />} />{" "}
-            {/* Default route to SignUp */}
-            <Route path="/login" element={<Login />} />
+            <Route
+              path="/"
+              element={
+                <>
+                  <TopNav />
+                  <SignUp />
+                </>
+              }
+            />
+            <Route
+              path="/login"
+              element={
+                <>
+                  <TopNav />
+                  <Login />
+                </>
+              }
+            />
             <Route
               path="/home"
               element={
@@ -58,7 +73,7 @@ export default function App() {
               <Route index element={<Navigate to="/introduction" replace />} />
               <Route path="introduction" element={<Introduction />} />
               <Route
-                path="intake-mainfold-pressure"
+                path="intake-manifold-pressure"
                 element={<IntakeManifoldPressure />}
               />
               <Route path="engine-power" element={<EnginePower />} />
