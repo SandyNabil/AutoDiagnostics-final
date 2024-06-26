@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const ContentNav = (props) => {
   const sensors = [
-    { name: "Intake Manifold Pressure", path: "intake-mainfold-pressure" },
+    { name: "Intake Manifold Pressure", path: "intake-manifold-pressure" },
     { name: "Engine Power", path: "engine-power" },
     { name: "Intake Air Temperature", path: "intake-air-temp" },
     { name: "Engine Load", path: "engine-load" },
