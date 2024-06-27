@@ -59,36 +59,39 @@ chart.update();
 }, [readings]);
 
 const chartData = {
-labels: readings.map((reading) =>
-new Date(reading.createdDate).toLocaleTimeString()
-),
-datasets: [
-{
-label: sensorName,
-data: readings.map((reading) => reading.value),
-fill: false,
-borderColor: (context) => {
-    const index = context.dataIndex;
-    const value = context.dataset.data[index];
-    return getColor(value, minValue, maxValue, avgValue);
-},
-backgroundColor: "rgba(0, 0, 0, 0.1)",
-pointRadius: 5,
-pointBackgroundColor: (context) => {
-    const index = context.dataIndex;
-    const value = context.dataset.data[index];
-    return getColor(value, minValue, maxValue, avgValue);
-},
-pointShadowColor: (context) => {
-    const index = context.dataIndex;
-    const value = context.dataset.data[index];
-    return getColor(value, minValue, maxValue, avgValue);
-},
-pointShadowBlur: 10,
-cubicInterpolationMode: "monotone",
-},
-],
+  labels: (isSmallScreen ? readings.slice(-5) : readings.slice(-20)).map(
+    (reading) => new Date(reading.createdDate).toLocaleTimeString()
+  ),
+  datasets: [
+    {
+      label: sensorName,
+      data: (isSmallScreen ? readings.slice(-5) : readings.slice(-20)).map(
+        (reading) => reading.value
+      ),
+      fill: false,
+      borderColor: (context) => {
+        const index = context.dataIndex;
+        const value = context.dataset.data[index];
+        return getColor(value, minValue, maxValue, avgValue);
+      },
+      backgroundColor: "rgba(0, 0, 0, 0.1)",
+      pointRadius: 5,
+      pointBackgroundColor: (context) => {
+        const index = context.dataIndex;
+        const value = context.dataset.data[index];
+        return getColor(value, minValue, maxValue, avgValue);
+      },
+      pointShadowColor: (context) => {
+        const index = context.dataIndex;
+        const value = context.dataset.data[index];
+        return getColor(value, minValue, maxValue, avgValue);
+      },
+      pointShadowBlur: 10,
+      cubicInterpolationMode: "monotone",
+    },
+  ],
 };
+
 
 const chartOptions = {
 scales: {

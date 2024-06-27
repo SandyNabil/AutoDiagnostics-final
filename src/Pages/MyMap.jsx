@@ -112,6 +112,18 @@ const MyMap = () => {
     setSelectedService(service);
   };
 
+  const handleShowDirections = (service) => {
+    if (userLocation) {
+      const [userLat, userLon] = userLocation;
+      const destinationLat = service.lat;
+      const destinationLon = service.lon;
+      const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&origin=${userLat},${userLon}&destination=${destinationLat},${destinationLon}&travelmode=driving`;
+      window.open(googleMapsUrl, '_blank');
+    } else {
+      alert('User location not available.');
+    }
+  };
+
   const calculateSteps = () => {
     if (userLocation && selectedService) {
       const [userLat, userLon] = userLocation;
@@ -177,7 +189,34 @@ const MyMap = () => {
               <div>
                 <p>{service.name}</p>
                 <p>{serviceAddresses[`${service.lat},${service.lon}`]}</p>
-                <button onClick={() => handleRowClick(service)}>Select</button>
+                <div style={{ display: 'flex', gap: '10px' }}>
+                  <button
+                    onClick={() => handleRowClick(service)}
+                    style={{
+                      padding: '5px 10px',
+                      backgroundColor: '#007BFF',
+                      color: 'white',
+                      border: 'none',
+                      borderRadius: '5px',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    Select
+                  </button>
+                  <button
+                    onClick={() => handleShowDirections(service)}
+                    style={{
+                      padding: '5px 10px',
+                      backgroundColor: '#6c757d',
+                      color: 'white',
+                      border: 'none',
+                      borderRadius: '5px',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    Show Directions
+                  </button>
+                </div>
               </div>
             </Popup>
           </Marker>
@@ -192,6 +231,20 @@ const MyMap = () => {
               <li key={index}>{step}</li>
             ))}
           </ul>
+          <button
+            onClick={() => handleShowDirections(selectedService)}
+            style={{
+              marginTop: '10px',
+              padding: '5px 10px',
+              backgroundColor: '#6c757d',
+              color: 'white',
+              border: 'none',
+              borderRadius: '5px',
+              cursor: 'pointer',
+            }}
+          >
+            Show Directions
+          </button>
         </div>
       )}
       <div style={{ overflowX: 'auto', margin: '20px' }}>
