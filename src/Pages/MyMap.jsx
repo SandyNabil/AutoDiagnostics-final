@@ -29,6 +29,12 @@ const MyMap = () => {
     { id: 17, name: 'Service Center 2 - Port Said', lat: 31.2600, lon: 32.3000, city: 'Port Said' },
     { id: 18, name: 'Service Center 3 - Port Said', lat: 31.2500, lon: 32.2800, city: 'Port Said' },
     { id: 19, name: 'المركز الهندسي لصيانة السيارات Motor - Suez', lat: 29.979114696406928, lon: 32.52256393862812, city: 'Suez' },
+    { id: 20, name: 'Suez tire-سويس تاير- Suez', lat: 29.965022545914763,  lon: 32.54292084939705, city: 'Suez' },
+    { id: 21, name: 'Peugeot Service - i Auto Expert - Suez', lat: 29.96409035408602, lon: 32.51438140870427, city: 'Suez' },
+    { id: 22, name: 'Meshail repair shop- Suez', lat: 29.96914659919854, lon: 32.55403518679108, city: 'Suez' },
+    { id: 23, name: 'VTEC for kia & hyndai spareparts - Ismailia', lat: 30.609476255157574, lon: 32.27215413513044, city: 'Ismailia' },
+    { id: 24, name: 'الورشة jdm - Ismailia', lat:30.615533475588038, lon: 32.29309682312435, city: 'Ismailia' },
+
   ], []);
 
   const fetchServices = async (lat, lon) => {
