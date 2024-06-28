@@ -20,8 +20,7 @@ const MobDrawerSideBar = (props) => {
         },
       }}
     >
-      {/* Ensure ContentNav or MenuNav is correctly integrated */}
-      <ContentNav openHandle={props.openHandle} /> {/* Adjust as per your component */}
+      <ContentNav openHandle={props.openHandle} />
     </Drawer>
   );
 };

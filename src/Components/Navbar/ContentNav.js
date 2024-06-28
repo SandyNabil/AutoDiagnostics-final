@@ -1,8 +1,9 @@
 import React from "react";
 import { Box, List, ListItem, Paper, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const ContentNav = (props) => {
+const ContentNav = ({ openHandle }) => {
+  const navigate = useNavigate();
   const sensors = [
     { name: "Intake Manifold Pressure", path: "intake-manifold-pressure" },
     { name: "Engine Power", path: "engine-power" },
@@ -13,7 +14,6 @@ const ContentNav = (props) => {
     { name: "Throttle Position", path: "throttle-position" },
     { name: "Engine Coolant Temperature", path: "engine-coolant-temp" },
   ];
-
 
   const paperStyle = {
     mb: 2,
@@ -26,6 +26,11 @@ const ContentNav = (props) => {
     },
   };
 
+  const handleNavigation = (path) => {
+    navigate(`/home/${path}`);
+    openHandle();
+  };
+
   return (
     <Box
       sx={{
@@ -35,51 +40,35 @@ const ContentNav = (props) => {
       }}
     >
       <List>
-        <Link to="/home/introduction" style={{ textDecoration: "none" }}>
+        <ListItem disablePadding>
           <Paper
-            sx={{
-              mb: 2,
-              p: 2,
-              textAlign: "center",
-              bgcolor: "#5f7d8a",
-              color: "white",
-              "&:hover": {
-                bgcolor: "secondary.dark",
-              },
-            }}
+            sx={paperStyle}
+            onClick={() => handleNavigation("introduction")}
+            style={{ width: "100%" }}
           >
             <Typography variant="body1">Overview</Typography>
           </Paper>
-        </Link>
-
+        </ListItem>
         {sensors.map((sensor) => (
           <ListItem key={sensor.path} disablePadding>
-            <Link
-              to={`/home/${sensor.path}`}
-              style={{ textDecoration: "none", width: "100%" }}
+            <Paper
+              sx={paperStyle}
+              onClick={() => handleNavigation(sensor.path)}
+              style={{ width: "100%" }}
             >
-              <Paper sx={paperStyle}>
-                <Typography variant="body1">{sensor.name}</Typography>
-              </Paper>
-            </Link>
+              <Typography variant="body1">{sensor.name}</Typography>
+            </Paper>
           </ListItem>
         ))}
-        <Link to="/home/maps" style={{ textDecoration: "none" }}>
+        <ListItem disablePadding>
           <Paper
-            sx={{
-              mb: 2,
-              p: 2,
-              textAlign: "center",
-              bgcolor: "#5f7d8a",
-              color: "white",
-              "&:hover": {
-                bgcolor: "secondary.dark",
-              },
-            }}
+            sx={paperStyle}
+            onClick={() => handleNavigation("maps")}
+            style={{ width: "100%" }}
           >
             <Typography variant="body1">Road Side Assistance</Typography>
           </Paper>
-        </Link>
+        </ListItem>
       </List>
     </Box>
   );
