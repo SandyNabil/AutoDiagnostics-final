@@ -43,7 +43,7 @@ export default function IssuesTable() {
   // useEffect(() => {
   //   const intervalId = setInterval(() => {
   //     fetchIssues(currentUrl);
-  //   }, 10000);
+  //   }, 6500);
 
   //   return () => clearInterval(intervalId); // Clean up the interval on component unmount
   // }, [currentUrl]);

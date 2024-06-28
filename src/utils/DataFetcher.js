@@ -1,6 +1,6 @@
 // import React, { useState, useEffect } from "react";
 
-// const DataFetcher = ({ apiUrl, apiUrl2, render, interval = 10000 }) => {
+// const DataFetcher = ({ apiUrl, apiUrl2, render, interval = 6500 }) => {
 //   const [data, setData] = useState(null);
 //   const [loading, setLoading] = useState(true);
 //   const [error, setError] = useState(null);

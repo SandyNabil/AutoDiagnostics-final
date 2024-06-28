@@ -1,6 +1,5 @@
     import React, { useState, useEffect } from 'react';
     import SensorsStyle from './SensorsStyle';
-
     const IntakeManifoldPressure = () => {
     const [data, setData] = useState(null);
     const [readings, setReadings] = useState([]);
