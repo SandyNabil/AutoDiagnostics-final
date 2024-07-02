@@ -40,17 +40,17 @@ export default function IssuesTable() {
     }
   };
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      fetchIssues(currentUrl);
-    }, 6500);
-
-    return () => clearInterval(intervalId); // Clean up the interval on component unmount
-  }, [currentUrl]);
-
   // useEffect(() => {
-  //   fetchIssues(currentUrl);
+  //   const intervalId = setInterval(() => {
+  //     fetchIssues(currentUrl);
+  //   }, 6500);
+
+  //   return () => clearInterval(intervalId); // Clean up the interval on component unmount
   // }, [currentUrl]);
+
+  useEffect(() => {
+    fetchIssues(currentUrl);
+  }, [currentUrl]);
 
   const handlePrevious = () => {
     if (prevUrl) {

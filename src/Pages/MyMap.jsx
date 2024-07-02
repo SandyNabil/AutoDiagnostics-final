@@ -63,7 +63,7 @@ const MyMap = () => {
   }, []);
 
   const convertLatLonToAddress = async (lat, lon) => {
-    const apiKey = 'efb0fcb618514090a5b925a329f9b7bf'; // Replace with your OpenCage API key efb0fcb618514090a5b925a329f9b7bf
+    const apiKey = ''; // Replace with your OpenCage API key 
     const url = `https://api.opencagedata.com/geocode/v1/json?key=${apiKey}&q=${lat}+${lon}&pretty=1`;
 
     try {
